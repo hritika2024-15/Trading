@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 
+const PORTB =  process.env.REACT_APP_BACK;
+
 const Signup = ({ setUser }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -8,7 +10,7 @@ const Signup = ({ setUser }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const url = isLogin ? "http://localhost:8080/login" : "http://localhost:8080/register";
+    const url = isLogin ? `${PORTB}/login` : `${PORTB}/register`;
 
     try {
       const res = await fetch(url, {

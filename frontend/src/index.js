@@ -17,12 +17,14 @@ import NotFound from './landing_page/NotFound';
 
 
 
-const PORT = process.env.DASH_URL;
+const PORTD = process.env.REACT_APP_DASH_URL;
 
 
-// This small function component wraps your JSX and allows useState
+
 const Root = () => {
   const [user, setUser] = useState(null);
+  console.log("PORTD:", PORTD);
+
 
   return (
     <BrowserRouter>
@@ -31,7 +33,7 @@ const Root = () => {
       {/* Show Dashboard icon only if logged in */}
       {user && (
         <a
-          href={`${PORT}?token=${localStorage.getItem("token")}`}
+          href={`${PORTD}?token=${localStorage.getItem("token")}`}
           style={{ display: "block", margin: "20px", fontWeight: "bold" }}
         >
           Go to Dashboard

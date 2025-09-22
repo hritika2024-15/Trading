@@ -6,7 +6,7 @@ import GeneralContext from "./GeneralContext";
 import "./BuyActionWindow.css";
 
 
-const PORTB = process.env.BACKEND_URL;
+const PORTB = process.env.REACT_APP_BACKEND_URL;
 
 
 
