@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 50" fill="none">
+  <rect width="240" height="50" rx="8" fill="#f8fafc"/>
+  <path d="M18 36 L28 14 L36 26 L26 36 Z" fill="#2563eb"/>
+  <path d="M28 14 L42 30 L35 36 L26 36 Z" fill="#0284c7" opacity="0.85"/>
+  <text x="50" y="27" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="15" font-weight="700" fill="#0f172a">Apex Fundhouse</text>
+  <text x="50" y="38" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="9" font-weight="500" fill="#64748b">ASSET MANAGEMENT</text>
+</svg>
