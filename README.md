@@ -8,12 +8,13 @@
 [![MongoDB](https://img.shields.io/badge/MongoDB-Atlas-47A248?style=for-the-badge&logo=mongodb&logoColor=white)](https://www.mongodb.com/)
 [![Three.js](https://img.shields.io/badge/Three.js-WebGL-000000?style=for-the-badge&logo=three.js&logoColor=white)](https://threejs.org/)
 [![JWT](https://img.shields.io/badge/JWT-Secure_Auth-000000?style=for-the-badge&logo=jsonwebtokens&logoColor=white)](https://jwt.io/)
+[![Quant Risk](https://img.shields.io/badge/Quant_Engine-VaR_%26_HHI-6366F1?style=for-the-badge&logo=speedtest&logoColor=white)](https://github.com/hritika2024-15/Trading)
 
 <p align="center">
-  <strong>Next-Generation Multi-Tenant Trading Platform Engineered with 3D WebGL Fluid Topology, Dynamic User-Scoped Order Routing, and Institutional Sub-Millisecond Precision.</strong>
+  <strong>Next-Generation Multi-Tenant Trading Platform Engineered with 3D WebGL Fluid Topology, Dynamic User-Scoped Order Routing, Embedded Quantitative Risk Analytics, and Institutional AI Intelligence.</strong>
 </p>
 
-[Explore Landing Page](#-platform-overview) • [Trading Terminal](#-trading-terminal-dashboard) • [Architecture](#-system-architecture) • [API Reference](#-api-specifications) • [Quickstart](#-quickstart--local-setup)
+[Platform Overview](#-executive-summary) • [Terminal Showcase](#-platform-showcase) • [Quantitative Risk Engine](#-quantitative-risk--ai-intelligence) • [Architecture](#-system-architecture) • [API Specifications](#-api-specifications) • [Quickstart](#-quickstart--local-setup)
 
 </div>
 
@@ -21,11 +22,13 @@
 
 ## 🌟 Executive Summary
 
-**VORTEX** is an institutional-grade, full-stack trading and portfolio execution ecosystem designed to replace legacy retail brokerage interfaces with high-performance 3D visual computing, isolated multi-tenant trading logic, and low-latency order execution workflows.
+**VORTEX** is an institutional-grade, full-stack trading and portfolio execution ecosystem designed to replace legacy retail brokerage interfaces with high-performance 3D visual computing, isolated multi-tenant trading logic, authentic quantitative risk analytics, and low-latency order execution workflows.
 
 Unlike standard static stock dashboard tutorials with shared mock data, **VORTEX** features:
 - **3D WebGL Fluid Telemetry**: Custom Three.js math-driven particle topology simulating real-time market depth and liquidity waves.
 - **Dynamic Multi-Tenant Engine**: Complete user isolation where each trader manages their own real-time funds, order book history, live holdings, and profit-and-loss calculations backed by MongoDB.
+- **Quantitative Risk & Portfolio Health Engine**: Computes authentic mathematical metrics—including **1-Day 95% Parametric Value-at-Risk (VaR)**, **Herfindahl-Hirschman Concentration Index (HHI)**, dynamic sector exposure, and a composite 0–100% health score.
+- **Embedded VORTEX AI Copilot**: Institutional financial intelligence assistant embedded in both the marketing portal and trading terminal, providing instant portfolio risk audits, asset technical profiling, options Greeks analysis, and execution guidance.
 - **Institutional Light Theme**: Sleek, modern institutional design system built with CSS variables, high-contrast typography, and glassmorphic telemetry cards.
 - **Sub-Millisecond Order Placement**: Interactive Buy/Sell terminal modal with instant margin calculations, position validation, and automatic portfolio rebalancing.
 
@@ -34,7 +37,7 @@ Unlike standard static stock dashboard tutorials with shared mock data, **VORTEX
 ## 📸 Platform Showcase
 
 ### 1. 3D Quantum Trading Architecture (Landing Platform)
-> Interactive Three.js WebGL particle field rendering live market fluidity, live streaming ticker ribbon across equities and indices, and direct DMA onboarding.
+> Interactive Three.js WebGL particle field rendering live market fluidity, live streaming ticker ribbon across equities and indices, embedded AI assistant, and direct DMA onboarding.
 
 <div align="center">
   <img src="screenshots/vortex_hero.png" alt="VORTEX Landing Page" width="100%" style="border-radius: 8px; border: 1px solid #e2e8f0; box-shadow: 0 10px 30px rgba(0,0,0,0.06);"/>
@@ -69,6 +72,50 @@ Unlike standard static stock dashboard tutorials with shared mock data, **VORTEX
 
 ---
 
+## 🔬 Quantitative Risk & AI Intelligence
+
+VORTEX integrates proprietary mathematical risk modeling directly on top of the trader's live portfolio:
+
+```
+┌────────────────────────────────────────────────────────────────────────┐
+│                     VORTEX RISK ENGINE ARCHITECTURE                     │
+│                                                                        │
+│   Active Holdings ───►  Concentration Model (HHI)   ───► Health Score  │
+│   Available Margin ──►  Volatility Matrix (σ)        ───► 95% 1-Day VaR │
+│   Sector Breakdown ──►  Sector Risk Penalty Weight  ───► Live Alerts   │
+└──────────────────────────────────┬─────────────────────────────────────┘
+                                   │
+                                   ▼
+             ┌──────────────────────────────────────────┐
+             │         VORTEX AI QUANT COPILOT          │
+             │   Natural Language Portfolio Auditing    │
+             │   Asset Technical Profiling (RSI, Beta)  │
+             │   Options Greeks & Execution Strategies  │
+             └──────────────────────────────────────────┘
+```
+
+### Mathematical Formulations Deployed:
+
+1. **Parametric Value-at-Risk (VaR at 95% Confidence):**
+   $$\text{VaR}_{95} = 1.645 \times \sigma_{\text{portfolio}} \times \text{Current Holdings Value}$$
+   *Quantifies the maximum statistical capital drawdown expected over a 1-day horizon under normal market regimes.*
+
+2. **Herfindahl-Hirschman Concentration Index (HHI):**
+   $$\text{HHI} = \sum_{i=1}^N (w_i \times 100)^2$$
+   - $\text{HHI} < 2500$: Highly Diversified (Minimal single-asset shock vulnerability)
+   - $2500 \le \text{HHI} \le 5000$: Moderately Concentrated
+   - $\text{HHI} > 5000$: Highly Concentrated (Triggers automated risk alerts)
+
+3. **Composite Portfolio Health Score (0–100%):**
+   Synthesizes cash-to-equity buffer ratio, HHI diversification score, sector spread, and unrealized drawdown into an institutional-grade rating.
+
+4. **Context-Aware Financial AI Reasoning:**
+   - Evaluates specific equity valuations and technical levels (e.g. INFY, RELIANCE, TCS support/resistance pivots).
+   - Explains derivatives mechanics (Delta, Gamma, Theta decay, Long Straddles).
+   - Zero internal leaks: Operates purely on institutional financial domain terminology.
+
+---
+
 ## 🏗️ System Architecture
 
 VORTEX is engineered as a decoupled, multi-tier micro-frontend architecture:
@@ -77,22 +124,27 @@ VORTEX is engineered as a decoupled, multi-tier micro-frontend architecture:
 graph TD
     ClientFrontend[Marketing & 3D WebGL Gateway\nPort 3000] -->|Launches Terminal| ClientDashboard[Institutional Trading Terminal\nPort 3001]
     ClientDashboard -->|JWT Bearer Token| APIGateway[Node.js / Express REST API\nPort 8080]
-    ClientFrontend -->|Trader Registration| APIGateway
+    ClientFrontend -->|AI Copilot Inquiries| APIGateway
+    ClientDashboard -->|Portfolio Risk Audit| APIGateway
     
     subgraph Backend Core
         APIGateway --> AuthMiddleware[Bcrypt & JWT Auth Guard]
         AuthMiddleware --> OrderEngine[Order Routing & Margin Engine]
+        AuthMiddleware --> RiskEngine[Quantitative Risk & VaR Engine]
+        AuthMiddleware --> AICopilot[VORTEX Financial Reasoning Copilot]
         OrderEngine --> PortfolioService[Holdings & P&L Calculator]
         PortfolioService --> MongoDB[(MongoDB Atlas Cluster)]
+        RiskEngine --> MongoDB
     end
 ```
 
 ### Module Breakdown
 | Tier | Technology | Description |
 | :--- | :--- | :--- |
-| **Marketing Gateway** | React 18, Three.js, React Router | Delivers interactive 3D WebGL shaders, live market ticker ribbons, and execution tier calculators. |
-| **Trading Terminal** | React 18, Chart.js, Three.js, Vanilla CSS | Institutional interface with live search watchlist, dynamic per-user orders, positions, and funds management. |
-| **Backend API Engine** | Node.js, Express, Cors, Body-Parser | High-throughput REST API with automated initial balance allocation (₹1,00,000 margin per new trader). |
+| **Marketing Gateway** | React 18, Three.js, React Router | Delivers interactive 3D WebGL shaders, live market ticker ribbons, execution tier calculators, and embedded AI copilot. |
+| **Trading Terminal** | React 18, Chart.js, Three.js, Vanilla CSS | Institutional interface with live search watchlist, dynamic per-user orders, positions, funds management, and real-time Risk Modal. |
+| **Backend API Engine** | Node.js, Express, Cors, Body-Parser | High-throughput REST API with automated initial balance allocation (₹1,00,000 margin per new trader) and JWT authentication. |
+| **Quantitative Risk Engine** | `aiRiskEngine.js` | Computes authentic mathematical metrics (VaR 95%, HHI index, sector allocation) and powers context-aware financial natural language assistance. |
 | **Persistence Layer** | MongoDB, Mongoose ODM | User schemas with isolated foreign keys linking orders, funds, and portfolio holdings to trader IDs. |
 
 ---
@@ -131,6 +183,8 @@ Unlike typical demo apps where all users share a single hardcoded database table
 | `GET` | `/allOrders` | Bearer Token | Lists complete historical order book audit trail for the session |
 | `GET` | `/userFunds` | Bearer Token | Queries real-time available trading capital and margin usage |
 | `POST` | `/addFunds` | Bearer Token | Instant UPI capital deposit simulation |
+| `GET` | `/api/portfolio/analytics` | Bearer Token | Computes live 95% Parametric VaR, HHI concentration, and health score |
+| `POST` | `/api/ai/chat` | Optional Token | Queries VORTEX Copilot with optional portfolio context |
 
 ---
 
@@ -203,6 +257,7 @@ npm start
 
 - **Frontend & UI**: React 18, React Router v6, Three.js, Chart.js, React-Chartjs-2, FontAwesome 6
 - **Backend & Logic**: Node.js, Express.js, Mongoose, JsonWebToken, Bcrypt.js, Cors
+- **Quantitative Engine**: Mathematical VaR (95% CI) modeling, Herfindahl-Hirschman Index (HHI), Sector risk weighting
 - **Design System**: Modular CSS Variables, Glassmorphism, Space Grotesk & JetBrains Mono Typography
 
 ---
