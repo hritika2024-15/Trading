@@ -73,7 +73,23 @@ const Summary = () => {
     <>
       <div className="username" style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
         <h6>Hi, {username}!</h6>
-        <div style={{ display: "flex", gap: "10px" }}>
+        <div style={{ display: "flex", gap: "10px", alignItems: "center" }}>
+          <button
+            onClick={() => window.dispatchEvent(new CustomEvent("open-risk-analysis"))}
+            className="btn btn-blue"
+            style={{
+              fontSize: "12px",
+              padding: "4px 12px",
+              background: "linear-gradient(135deg, #0284c7 0%, #2563eb 100%)",
+              border: "none",
+              display: "flex",
+              alignItems: "center",
+              gap: "6px",
+            }}
+            title="Open Quantitative Portfolio Risk & Health Analysis"
+          >
+            <i className="fa-solid fa-shield-halved"></i> Risk &amp; Health
+          </button>
           <Link to="/orders" className="btn btn-blue" style={{ fontSize: "12px", padding: "4px 12px" }}>
             Orders
           </Link>

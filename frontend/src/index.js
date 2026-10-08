@@ -10,6 +10,8 @@ import Navbar from './landing_page/Navbar';
 import Footer from './landing_page/Footer';
 import NotFound from './landing_page/NotFound';
 
+import VortexAICopilot from './components/VortexAICopilot';
+
 const PORTD = process.env.REACT_APP_DASH_URL;
 
 const Root = () => {
@@ -39,6 +41,9 @@ const Root = () => {
       </Routes>
 
       <Footer />
+
+      {/* VORTEX AI Floating Chatbot Copilot */}
+      <VortexAICopilot />
     </BrowserRouter>
   );
 };

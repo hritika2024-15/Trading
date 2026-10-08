@@ -70,7 +70,7 @@ app.post("/login", async (req, res) => {
     const token = jwt.sign(
       { id: user._id, username: user.username },
       process.env.JWT_SECRET,
-      { expiresIn: "1h" }
+      { expiresIn: "7d" }
     );
 
     res.json({
@@ -348,8 +348,74 @@ app.post("/newOrder", auth, async (req, res) => {
   }
 });
 
+const { calculatePortfolioRisk, generateAIResponse } = require("./services/aiRiskEngine");
 
+// GET PORTFOLIO QUANTITATIVE RISK & HEALTH ANALYTICS
+app.get("/api/portfolio/analytics", auth, async (req, res) => {
+  try {
+    let user = null;
+    if (mongoose.Types.ObjectId.isValid(req.user.id)) {
+      user = await User.findById(req.user.id);
+    }
+    if (!user && req.user.username) {
+      user = await User.findOne({ username: req.user.username });
+    }
+    if (!user) return res.status(404).json({ msg: "Trader account not found" });
 
+    const holdings = await HoldingModel.find({ userId: user._id });
+    const funds = user.funds != null ? user.funds : 100000;
+
+    const analytics = calculatePortfolioRisk(holdings, funds);
+    res.json(analytics);
+  } catch (err) {
+    console.error("Error computing portfolio analytics:", err);
+    res.status(500).json({ msg: "Error computing analytics", error: err.message });
+  }
+});
+
+// AI COPILOT CHATBOT ENDPOINT
+app.post("/api/ai/chat", async (req, res) => {
+  try {
+    const { message } = req.body;
+    if (!message || typeof message !== "string") {
+      return res.status(400).json({ msg: "Message is required" });
+    }
+
+    let portfolioContext = null;
+    let isAuthenticated = false;
+
+    // Optional auth check to pull trader's live portfolio
+    const header = req.headers["authorization"];
+    if (header) {
+      try {
+        const token = header.split(" ")[1];
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+        if (decoded && (decoded.id || decoded.username)) {
+          let user = null;
+          if (mongoose.Types.ObjectId.isValid(decoded.id)) {
+            user = await User.findById(decoded.id);
+          }
+          if (!user && decoded.username) {
+            user = await User.findOne({ username: decoded.username });
+          }
+          if (user) {
+            isAuthenticated = true;
+            const holdings = await HoldingModel.find({ userId: user._id });
+            portfolioContext = calculatePortfolioRisk(holdings, user.funds != null ? user.funds : 100000);
+          }
+        }
+      } catch (authErr) {
+        // Silently continue as unauthenticated query
+      }
+    }
+
+    const reply = await generateAIResponse(message, portfolioContext, isAuthenticated);
+    res.json({ reply, timestamp: new Date().toISOString() });
+  } catch (err) {
+    console.error("Error generating AI response:", err);
+    res.status(500).json({ msg: "Error generating AI response", error: err.message });
+  }
+});
 
 app.listen(PORT, () => {
   console.log("App started!");
