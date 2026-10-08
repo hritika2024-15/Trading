@@ -72,24 +72,24 @@ const ThreeTerminalCanvas = ({ variant = "terminal" }) => {
 
     // 3. Central Hologram Core (Only in Login or ambient in terminal)
     const coreGroup = new THREE.Group();
-    coreGroup.position.set(0, variant === "login" ? 2 : 6, 0);
+    coreGroup.position.set(0, variant === "login" ? -8 : 6, variant === "login" ? -10 : 0);
 
-    const geo1 = new THREE.IcosahedronGeometry(variant === "login" ? 10 : 7, 1);
+    const geo1 = new THREE.IcosahedronGeometry(variant === "login" ? 8 : 7, 1);
     const mat1 = new THREE.MeshBasicMaterial({
       color: 0x0284c7,
       wireframe: true,
       transparent: true,
-      opacity: variant === "login" ? 0.35 : 0.18,
+      opacity: variant === "login" ? 0.15 : 0.18,
     });
     const mesh1 = new THREE.Mesh(geo1, mat1);
     coreGroup.add(mesh1);
 
-    const geo2 = new THREE.OctahedronGeometry(variant === "login" ? 6 : 4, 1);
+    const geo2 = new THREE.OctahedronGeometry(variant === "login" ? 5 : 4, 1);
     const mat2 = new THREE.MeshBasicMaterial({
       color: 0x6366f1,
       wireframe: true,
       transparent: true,
-      opacity: variant === "login" ? 0.45 : 0.22,
+      opacity: variant === "login" ? 0.18 : 0.22,
     });
     const mesh2 = new THREE.Mesh(geo2, mat2);
     coreGroup.add(mesh2);
